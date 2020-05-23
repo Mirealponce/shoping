@@ -1,0 +1,56 @@
+﻿@model IEnumerable<OnlineShoppingStore.DAL.Producto>
+
+@{
+    ViewBag.Title = "IndexClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="Categorias">
+    
+    @{ Html.RenderAction("MostrarCategoria", "Categorias");}
+</div>
+
+<div class="row product-container" style="margin-top:-155px; margin-left:400px;">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <a href=@("../Productos/Details/"+item.idProducto)>
+                <div class="thumbnail product-item" style="height:450px; width:250px;">
+
+
+
+                    <div class="caption">
+
+
+                        <img class="img-responsive" title="Click to View Product detail"
+                             style="cursor:pointer;height:400px;width:400px"
+                             src="~/Images/mesa-restaurante.png" />
+
+                        @Html.DisplayFor(modelItem => item.Foto)
+
+
+                        @Html.DisplayFor(modelItem => item.nombreProducto)
+
+
+                        @Html.DisplayFor(modelItem => item.precio)
+
+
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+
+                        @Html.DisplayFor(modelItem => item.Categoria.tipoCategoria)
+
+
+
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+

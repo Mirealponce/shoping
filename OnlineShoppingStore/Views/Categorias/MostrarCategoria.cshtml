@@ -1,0 +1,21 @@
+﻿@model IEnumerable<OnlineShoppingStore.DAL.Categoria>
+
+@{
+    Layout = null;
+}
+<p style="margin-left:190px; margin-top:50px;">Categorías de productos</p>
+<table style="margin-left:150px; margin-top:20px;">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+               
+                <ul>  @Html.ActionLink(item.tipoCategoria, "../Productos/filtrar", new { nombre = item.tipoCategoria })</ul>
+            </td>
+
+        </tr>
+    }
+
+</table>

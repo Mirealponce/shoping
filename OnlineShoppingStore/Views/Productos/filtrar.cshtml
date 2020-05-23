@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineShoppingStore.DAL.Producto>
+
+@{
+    ViewBag.Title = "filtrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>filtrar</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row product-container">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:300px">
+
+
+
+                <div class="caption">
+
+
+                    <img class="img-responsive" title="Click to View Product detail"
+                         style="cursor:pointer;height:160px;width:100%"
+                         src="~/Images/mesa-restaurante.png" />
+
+                    @Html.DisplayFor(modelItem => item.Foto)
+
+
+                    @Html.DisplayFor(modelItem => item.nombreProducto)
+
+
+                    @Html.DisplayFor(modelItem => item.precio)
+
+
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+
+                    @Html.DisplayFor(modelItem => item.Categoria.tipoCategoria)
+
+
+
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

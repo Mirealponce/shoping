@@ -1,0 +1,73 @@
+﻿@model OnlineShoppingStore.DAL.Producto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreProducto)
+        </dt>
+        <dd class="Tallas">
+
+            @{ Html.RenderAction("detalleProducto", "DetalleProductoes", new { id = Model.idProducto });}
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.nombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.tipoCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.tipoCategoria)
+        </dd>
+
+    </dl>
+
+    <p>
+
+        @using (Html.BeginForm("AddToCart", "Productos", new { id = Model.idProducto }, FormMethod.Post))
+        {
+            <button value="Agregar a carrito" type="submit" class="pull-right"><i class="fa fa-shopping-cart"></i></button>
+        }
+
+        
+        @Html.ActionLink("Detalle de Carrito", "../Productos/DetalleCarrito")
+    </p>
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idProducto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
